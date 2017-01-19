@@ -10,13 +10,14 @@ function saveNewTime(){
 	}
 	document.getElementById("alertWrap").innerText="";
 	document.getElementById("newTime").value = "";
-	localStorage['rental']= rental;
+	localStorage['rental']= rental*60;
 	init();
 }
 function bindFields(){
-	var _rental=localStorage['rental'],
+	var _rental=Math.floor(parseInt(localStorage['rental'])/60),
 	_used=Math.floor(parseInt(localStorage['used'])/60),
-	_left=parseInt(_rental)-parseInt(_used)<=0?0:parseInt(_rental)-parseInt(_used);
+	//_left=parseInt(_rental)-parseInt(_used)<=0?0:parseInt(_rental)-parseInt(_used);
+	_left = parseInt(_rental)<=parseInt(_used)?0:parseInt(_rental)-parseInt(_used);
 	bindField('rentalTime',_rental);
 	bindField('usedTime',_used);
 	bindField('leftTime',_left);
@@ -27,7 +28,7 @@ function init(){
 		document.getElementById('changeRental').innerHTML='';
 	}
 	if(!localStorage['rental']){
-		localStorage['rental'] = '60';
+		localStorage['rental'] = 60*60;
 	}
 	if(!localStorage['used']){
 		localStorage['used'] ='0';

@@ -11,7 +11,7 @@ function watchingDate(tabArray){
 		localStorage['used']='0';//second as measure
 	}else{
 		localStorage['used']=parseInt(localStorage['used'])+10;
-		if(parseInt(localStorage['used'])>=parseInt(localStorage['rental'])*60){
+		if(parseInt(localStorage['used'])>=parseInt(localStorage['rental'])){
 			for(var i=0;i<tabArray.length;i++){
 				chrome.tabs.update(tabArray[i].id, {url:insteadUrl}, function(){
 				})
