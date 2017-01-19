@@ -8,10 +8,10 @@ function watchingDate(tabArray){
 	var _date=formatTime();
 	if(localStorage['currentDate']!=_date){
 		localStorage['currentDate']=_date;
-		localStorage['used']='0';
+		localStorage['used']='0';//second as measure
 	}else{
-		localStorage['used']++;
-		if(parseInt(localStorage['used'])>=parseInt(localStorage['rental'])){
+		localStorage['used']=parseInt(localStorage['used'])+10;
+		if(parseInt(localStorage['used'])>=parseInt(localStorage['rental'])*60){
 			for(var i=0;i<tabArray.length;i++){
 				chrome.tabs.update(tabArray[i].id, {url:insteadUrl}, function(){
 				})
@@ -54,5 +54,5 @@ setInterval(function(){
 			watchingDate(tabArray);
 		}
 	})
-},60000);
+},10000);
 

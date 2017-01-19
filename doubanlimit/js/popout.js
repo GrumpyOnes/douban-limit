@@ -15,7 +15,7 @@ function saveNewTime(){
 }
 function bindFields(){
 	var _rental=localStorage['rental'],
-	_used=localStorage['used'],
+	_used=Math.floor(parseInt(localStorage['used'])/60),
 	_left=parseInt(_rental)-parseInt(_used)<=0?0:parseInt(_rental)-parseInt(_used);
 	bindField('rentalTime',_rental);
 	bindField('usedTime',_used);
