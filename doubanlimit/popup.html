@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 320px;
+    height: 240px;
+	background:#ecf4ec;
+	font-family:Helvetica,Arial,sans-serif;
+}
+
+.popout-wrap{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+.header{
+	padding:12px;
+}
+.logo-wrap{
+	width:150px;
+	height:40px;
+}
+.logo-wrap img{
+width:100%;
+height:auto;
+}
+.popout-wrap .content{
+	font-size:14px;
+	line-height:1.5em;
+	color:rgba(0,0,0,0.3);
+	text-align:center;
+}
+.popout-wrap .content p{
+	padding-bottom:0.8em;
+	font-size:12px;
+}
+.popout-wrap .content p.last-time{
+	color:#007722;
+	font-size:18px;
+}
+.popout-wrap .footer{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:2em;
+	border-top:1px rgba(0,0,0,0.1) solid ;
+}
+.popout-wrap .footer{
+	text-align:right;
+	line-height:2em;
+	color:rgba(0,0,0,0.3);
+}
+.popout-wrap .footer a{
+	color:rgba(0,0,0,0.3);
+	margin-left:0.5em;
+}
+.new-time{
+	border: 1px solid #e1e9e1;
+	outline:none;
+	height:28px;
+	width:260px;
+	padding:0 0 0 8px;
+	vertical-align:bottom;
+}
+.submit-new-time{
+	width: 30px;
+    height: 28px;
+    padding: 0;
+    margin: 0;
+    line-height: 100px;
+    background:url('images/duihao.png') 50% 50%;
+	background-size:contain;
+	cursor:pointer;
+}
+.change-time > *{
+	display:inline-block;
+}
+.alert-wrap{
+	padding-left:8px;
+	color:red;
+}
+
+</style>
+</head>
+<body>
+<div class="popout-wrap">
+<div class="header">
+	<p class="logo-wrap"><img src="images/logo-big.png" /></p>
+	<div id="changeRental">
+		<div class="change-time">
+		<input id="newTime" class="new-time" type="number" max="180" min="0" title="修改你的限制时长" maxlength="60" autocomplete="off" value="" placeholder="请输入1-180的整数,单位分钟">
+		<p id="submitNewTime" class="submit-new-time"></p>
+		</div>
+	</div>
+	<div id="alertWrap" class="alert-wrap"></div>
+</div>
+<div class="content">
+<p>你每日刷豆瓣的份额为<span id="rentalTime">360</span>分钟<br/>今日已经使用<span id="usedTime">300</span>分钟</p>
+<p class="last-time">剩余<span id="leftTime">300</span>分钟</p>
+</div>
+<div class="footer">
+<p>每周一 9~10点可修改限制时长<span><a target="_blank" href="https://www.douban.com/people/chunx/">@douban</a></span><span><a target="_blank"  href="https://github.com/GrumpyOnes">@github</a></span><p>
+
+</div>
+</div>
+<script src="js/popout.js"></script>
+</body>
+</html>
